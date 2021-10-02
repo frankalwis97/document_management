@@ -3,6 +3,7 @@
 <h4>This module was built using odoo 12 community version<h4>
 
 <h5> Steps to Insall Module <h5>
+
     1. Get a clone into the addons folder.<br/>
 
     2. If the install is a fresh install go into apps and remove the apps filter and search for Document Management( If its not a fresh  install activate developer mode from setting and go to apps and update applist. then search for  Document Management).
@@ -15,6 +16,7 @@
 
 
 <h5> Steps to Use Module <h5>
+
     1. Users will be able to add documents by going into the sales order and adding them.<br/>
 
     2 Manager can view all the documents from the Documents menu and apporove them accordingly.<br/>
