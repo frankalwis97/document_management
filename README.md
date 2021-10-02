@@ -12,16 +12,14 @@
   
     4. Assign the manager to the Sales / Document Approval group by going to setting clicking on users & companies and then groups.
   
-
-
-
+  
 <h5> Steps to Use Module <h5>
 
-    1. Users will be able to add documents by going into the sales order and adding them.<br/>
+    1. Users will be able to add documents by going into the sales order and adding them.
 
-    2 Manager can view all the documents from the Documents menu and apporove them accordingly.<br/>
+    2 Manager can view all the documents from the Documents menu and approved them accordingly.
 
-    3.When the manager clicks the reject button a popup will display and ask for a rejecr reason. When the reason is typed and confiurmed history of why the rejection happened will be logged into the chatter in the documents.
+    3.When the manager clicks the reject button a popup will display and ask for a reject reason. When the reason is typed and confirmed history of why the rejection happened will be logged into the chatter in the documents.
 
     4. the users will be able to resubmit the document again and when manager approves it will be added to the invoice if any created.
 
