@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.ui.view" id="document_management_view_tree">
+        <field name="name">document.management.view.tree</field>
+        <field name="model">document.management</field>
+        <field name="arch" type="xml">
+            <tree string="Documents">
+                <field name="name"/>
+                <field name="sales_order_id" />
+                <field name="account_invoice_id" />
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="document_management_view_form" model="ir.ui.view">
+        <field name="name">document.management.view.form</field>
+        <field name="model">document.management</field>
+        <field name="arch" type="xml">
+            <form string="Documents">
+                <header>
+                    <button name="action_change_state" type="object" string="Approve" class="oe_highlight" attrs="{'invisible': [('state','!=','draft')]}" 
+                        context="{'state_new': 'approved' }" groups="document_management.approval_restrict"/>
+                    
+                    <button name="action_reject_wizard" type="object" string="Reject" attrs="{'invisible': [('state','!=','draft')]}" 
+                         context="{'state_new': 'rejected','parent_id': id }" groups="document_management.approval_restrict"/>
+                    
+                    <button name="action_change_state" type="object" string="Resubmit"  class="oe_highlight" attrs="{'invisible': [('state','!=','rejected')]}" 
+                        context="{'state_new': 'draft' }"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                       
+                            <group>
+                                <field name="name" attrs="{'readonly': [('state','=','approved')]}"/>
+                                <field name="ir_attachment_ids" widget="many2many_binary" attrs="{'readonly': [('state','=','approved')]}"/>
+                            </group>
+                            <group>
+                                <field name="sales_order_id" readonly="True" required="True"/>
+                                <field name="account_invoice_id" readonly="True"/>
+                            </group>
+                        
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread" readonly="True"/>
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <act_window id="document_managementaction_action_view_awaiting_approval"
+        name="Awaiting Approval"
+        res_model="document.management"
+        view_mode="tree,form"
+        domain="[('state', 'in', ('draft','rejected'))]"/>
+        
+    <act_window id="document_managementaction_action_view_approved"
+        name="Approved Documents"
+        res_model="document.management"
+        view_mode="tree,form"
+        domain="[('state', '=', 'approved')]"/>
+    
+    <menuitem id="document_management_menu_root"
+            name="Documents" sequence="5"/>
+    
+    <menuitem id="document_management_menu_action_awaiting_approval"
+            name="Awaiting Approval" parent="document_management_menu_root" action="document_managementaction_action_view_awaiting_approval" groups="document_management.approval_restrict" sequence="1"/>
+    
+    <menuitem id="document_management_menu_action_approved"
+            name="Approved Documents" parent="document_management_menu_root" action="document_managementaction_action_view_approved" groups="document_management.approval_restrict" sequence="2"/>
+</odoo>
