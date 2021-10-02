@@ -22,7 +22,6 @@ class DocumentManagement(models.Model):
         ('rejected', "Rejected"),
     ], string='Status', readonly=True, default='draft', track_visibility="always")
 
-
     def action_change_state(self):
         """This method is incharge of changing state of the document when the 
             approve or resubmit button is clicked. Assuming that 
@@ -31,12 +30,10 @@ class DocumentManagement(models.Model):
         state = self.env.context.get('state_new', False)
         vals = {'state': state}
 
-
         if(len(self.account_invoice_id) == 0 and len(self.sales_order_id.invoice_ids) > 0):
             vals['account_invoice_id'] = self.sales_order_id.invoice_ids[0].id
         self.write(vals)
 
-    
     def action_reject_wizard(self):
         """This method is incharge of poping the wizard to reject the document """
         return {
@@ -48,14 +45,10 @@ class DocumentManagement(models.Model):
             'target': 'new',
         }
 
-    
     def unlink(self):
         """This is to make sure approved deocuments arent deleted by anyone"""
-        try:
-            for document in self:
-                if document.state != 'draft':
-                    raise UserError('You can not delete  approved  documents.')
-        except Exception as e: 
-            print(str(e))
-            
+        for document in self:
+            if document.state != 'draft':
+                raise UserError('You can not delete  approved  documents.')
+
         return super(DocumentManagement, self).unlink()
