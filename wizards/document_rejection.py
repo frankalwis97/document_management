@@ -13,7 +13,7 @@ class DocumentRejection(models.TransientModel):
 
     def action_reject_document(self):
         """This method is used to log the reject reason into the mail.message model 
-            so that a history of the document can be viewd"""
+            so that a history of the document can be viewed"""
         state = self.env.context.get('state_new', False)
         self.document_id.message_post(
             body=("Document Rejected Due To. : %s") % (self.note), subject="Rejected")
