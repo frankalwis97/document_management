@@ -26,7 +26,7 @@
         'views/views.xml',
         'views/templates.xml',
         'views/sale_order_views.xml',
-        'wizard/document_rejection_views.xml',
+        'wizards/document_rejection_views.xml',
         'views/document_management_views.xml',
         'views/document_management_menu.xml',
         'views/account_invoice_views.xml'
